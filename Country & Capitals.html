@@ -1,0 +1,57 @@
+<!--
+    Question 3. Write an HTML page that contains a selection box with a list of 5 countries, when the user 
+selects a country, its capital should be printed next to the list
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country & Capitals</title>
+<body style="width:60% ; margin-left:auto; margin-right:auto;">
+
+    <h1>Select a Country</h1>
+    <select id="countrySelect" onchange="displayCapital()">
+        <option value="">Select a country</option>
+        <option value="Bangladesh">Bangladesh</option>
+        <option value="UK">United Kingdom</option>
+        <option value="Germany">Germany</option>
+        <option value="Japan">Japan</option>
+        <option value="Australia">Australia</option>
+    </select>
+    <p id="capitalDisplay"></p>
+
+    <script>
+        function displayCapital() {
+            var select = document.getElementById("countrySelect");
+            var selectedCountry = select.options[select.selectedIndex].value;
+            var capitalDisplay = document.getElementById("capitalDisplay");
+            var capital;
+
+            switch (selectedCountry) {
+                case "Bangladesh":
+                    capital = "Dhaka";
+                    break;
+                case "UK":
+                    capital = "London";
+                    break;
+                case "Germany":
+                    capital = "Berlin";
+                    break;
+                case "Japan":
+                    capital = "Tokyo";
+                    break;
+                case "Australia":
+                    capital = "Canberra";
+                    break;
+                default:
+                    capital = "Unknown";
+                    break;
+            }
+
+            capitalDisplay.innerText = "Capital: " + capital;
+        }
+    </script>
+</body>
+</html>
